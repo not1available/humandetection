@@ -7,7 +7,7 @@ import pygame
 
 #parameters
 MONITOR_START_HOUR = 12
-MONITOR_END_HOUR = 18  
+MONITOR_END_HOUR = 23  
 BUFFER_SIZE = 10         
 DETECTION_THRESHOLD = 8 
 SAVE_COOLDOWN_FRAMES = 80 
@@ -71,9 +71,9 @@ while True:
             # save img and log csv
             if frames_since_last_save >= SAVE_COOLDOWN_FRAMES:
                 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-                file_path = f"detections/intruder_{timestamp}.jpg"
+                file_path = f"detections/person_{timestamp}.jpg"
                 
-                # save img
+                # save imgq
                 cv2.imwrite(file_path, img)
                 
                 # log to csv
